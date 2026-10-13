@@ -6,6 +6,15 @@ player = {
     {"season": "2025/2026", "club": "kano pillars", "apps": 26, "goals": 6}]
 }
 
+def get_career_totals(player):
+    total_apps = 0
+    total_goals = 0
+    seasons_list = player["seasons"]
+    for season in seasons_list:
+        total_apps += season["apps"]
+        total_goals += season["goals"]
+    return {"total_apps": total_apps, "total_goals": total_goals}
+
 def display_player(player):
     name = player.get("name")
     position = player.get("position")
@@ -20,15 +29,8 @@ def display_player(player):
         apps = items.get("apps")
         goals = items.get("goals")
         print(f'season: {season}, | club: {club}, | apps: {apps}, | goals: {goals}')
-
-
+    totals = get_career_totals(player)
+    total_apps = totals.get("total_apps")
+    total_goals = totals.get("total_goals")
+    print(f'Total_apps: {total_apps} | Total_goals: {total_goals}')
 display_player(player)
-
-def get_career_totals(player):
-    total_apps = 0
-    seasons_list = player["seasons"]
-    for season in seasons_list:
-        total_apps += season["apps"]
-        print(total_apps)
-
-get_career_totals(player)
