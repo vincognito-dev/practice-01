@@ -34,3 +34,40 @@ def display_player(player):
     total_goals = totals.get("total_goals")
     print(f'Total_apps: {total_apps} | Total_goals: {total_goals}')
 display_player(player)
+
+def main_menu():
+    print("Player Career Tracker")
+    print("____________________\n")
+    print("1. Add a player")
+    print("2. Add a season")
+    print("3. View a player")
+    print("4. List all players")
+    print("5. Quit")
+    choice = input("Select an option 1-5: ")
+    return choice
+players = []
+def get_player_info():
+     name = input("Enter player name: ")
+     dob = input("Enter player date of birth (e.g., YYYY-MM-DD): ")
+     position = input("Enter player position: ")
+
+     player_data = {"name": name, "date_of_birth": dob, "position": position, "seasons": []}
+     return player_data
+def find_player():
+    
+while True:
+    choice = main_menu()
+    if choice == "1":
+        new_player = get_player_info()
+        players.append(new_player)
+    elif choice == "2":
+        print("Add a season")
+    elif  choice == "3":
+        print("View a player")
+    elif choice == "4":
+        print("List all players")
+    elif choice == "5":
+        print("Quit")
+        break
+    else:
+        print("invalid input, Try again")
